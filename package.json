@@ -20,6 +20,9 @@
   },
   "homepage": "https://github.com/MarkDave777/https-github.com-MarkDave777-learn-node2#readme",
   "dependencies": {
-    "dotenv": "^17.2.0"
+    "body-parser": "^1.20.3",
+    "dotenv": "^16.6.1",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2"
   }
 }
