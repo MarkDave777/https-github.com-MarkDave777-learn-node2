@@ -8,6 +8,8 @@ const bodyparser = require('body-parser');
 const app = express();
 const PORT = process.env.PORT || 3000; // env var or fallback
 
+const { login, auth } = require('./auth');
+
 // GET /            → welcome
 app.get('/', (req, res) => res.send('Hello Express!'));
 app.use(bodyparser.json());
@@ -60,6 +62,10 @@ app.post('/users', async (req, res) => {
     }
 });
 
+app.post('/login', login);
+app.get('/protected', auth, (req, res) => {
+  res.json({ message: `Hello user ${req.user.sub}` });
+});
 
 app.listen(PORT, () =>
     console.log(`Server listening on http://localhost:${PORT}`)
